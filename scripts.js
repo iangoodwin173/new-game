@@ -8,7 +8,7 @@ function closeModal() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const utcDateString = new Date().toISOString().split("T")[0]; // e.g. "2025-05-08"
+  const utcDateString = new Date().toISOString().split("T")[0]; 
   const lastPlayed = localStorage.getItem("lastPlayedDate");
 
   if (lastPlayed === utcDateString) {
