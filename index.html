@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faux Fact</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>Faux Fact</h2>
+      <p>3 facts are true, one is false — find the false fact to move on to the next. There are 10 total questions. Good luck.</p>
+      <button id="playButton">Play</button>
+    </div>
+  </div>
+
+ 
+  
+
+  <!-- Game Content -->
+<div class="page-content" id="mainContent">
+    <h1></h1>
+
+    <div id="question-container">
+      <ul id="fact-list"></ul>
+    </div>
+    <div id="feedback" class="hidden"></div>
+
+    <div class="theme-toggle bottom-toggle">
+        <label class="switch">
+          <input type="checkbox" id="theme-switch">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">Dark Mode</span>
+      </div>
+      
+  </div>
+  
+
+  <script src="data/realFacts.js"></script>
+<script src="data/fakeFacts.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

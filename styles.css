@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef4ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(80, 90, 120, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #ffffff;
+    padding: 2rem 2.5rem;
+    border-radius: 14px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(50, 70, 120, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+    color: #333c58;
+    font-size: 1.6rem;
+  }
+  
+  .modal button {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .modal button:hover {
+    background-color: #5847eb;
+  }
+  
+
+  .page-content {
+    display: none;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    color: #3b4261;
+    margin-bottom: 1rem;
+  }
+  
+  #fact-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  #fact-list li {
+    background-color: #ffffff;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(90, 110, 160, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.05rem;
+    text-align: left;
+    color: #2b2f4a;
+  }
+  
+  #fact-list li:hover {
+    background-color: #e4eaff;
+    transform: scale(1.01);
+  }
+  
+  .correct {
+    background-color: #d6f5e7 !important;
+    border-left: 6px solid #2ecc71;
+    font-weight: 600;
+    color: #186b4d;
+  }
+  
+  .incorrect {
+    background-color: #ffe6e9 !important;
+    border-left: 6px solid #e74c3c;
+    font-weight: 600;
+    color: #922b21;
+  }
+  
+  #feedback {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    color: #444b6a;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+ 
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  
+  /* Toggle Switch */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .theme-toggle.bottom-toggle {
+    position: static;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  
+  .theme-label {
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #4ade80;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(20px);
+  }
+  
+  /* Dark mode styles */
+  body.dark {
+    background: #1e1e2f;
+    color: #f1f1f1;
+  }
+  
+  body.dark .modal {
+    background: #2c2c3e;
+    color: #f1f1f1;
+  }
+  
+  body.dark .modal button {
+    background-color: #4ade80;
+    color: #1e1e2f;
+  }
+  
+  body.dark #fact-list li {
+    background-color: #2f2f44;
+    color: #e2e8f0;
+  }
+  
+  body.dark #fact-list li:hover {
+    background-color: #3a3a58;
+  }
+  
+  body.dark .correct {
+    background-color: #264e37 !important;
+    border-left-color: #34d399;
+    color: #a7f3d0;
+  }
+  
+  body.dark .incorrect {
+    background-color: #4a2e2e !important;
+    border-left-color: #f87171;
+    color: #fecaca;
+  }
+  
+  body.dark .theme-label {
+    color: #e2e8f0;
+  }
+
+  body.dark h1,
+body.dark h2 {
+  color: #e0e7ff;
+}
+
+  
