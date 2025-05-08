@@ -1,1 +1,1 @@
-# new-game
+This hub contains the code and data for a new game called Faux Fact, where users try to find the fake fact within a set of real facts. 
