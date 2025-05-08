@@ -1,5 +1,5 @@
 let currentLevelIndex = 0;
-const totalLevels = 10; 
+const totalLevels = 10;
 
 function closeModal() {
   document.getElementById('modal').style.display = 'none';
@@ -8,13 +8,32 @@ function closeModal() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('playButton').addEventListener('click', closeModal);
+  const utcDateString = new Date().toISOString().split("T")[0]; // e.g. "2025-05-08"
+  const lastPlayed = localStorage.getItem("lastPlayedDate");
+
+  if (lastPlayed === utcDateString) {
+    // Already played today
+    const main = document.getElementById('mainContent');
+    main.innerHTML = `
+      <h1>Faux Fact</h1>
+      <p>You’ve already played today’s challenge.</p>
+      <p>Come back tomorrow for a new set of facts!</p>
+    `;
+    main.style.display = 'block';
+    document.getElementById('modal').style.display = 'none';
+  } else {
+    // Not played today — wait for play button
+    document.getElementById('playButton').addEventListener('click', () => {
+      localStorage.setItem("lastPlayedDate", utcDateString);
+      closeModal();
+    });
+  }
 });
 
 function getRandomFacts() {
   const shuffledReal = [...realFacts].sort(() => Math.random() - 0.5);
   const shuffledFake = [...fakeFacts].sort(() => Math.random() - 0.5);
-  
+
   const facts = [
     ...shuffledReal.slice(0, 3).map(fact => ({ text: fact, isFake: false })),
     { text: shuffledFake[0], isFake: true }
@@ -79,9 +98,9 @@ function handleAnswer(selectedFact, selectedElement, facts) {
   }
 }
 
+// Theme toggle
 const themeToggle = document.getElementById("theme-switch");
 
-// Load saved preference
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
   themeToggle.checked = true;
@@ -96,4 +115,3 @@ themeToggle.addEventListener("change", () => {
     localStorage.setItem("theme", "light");
   }
 });
-
