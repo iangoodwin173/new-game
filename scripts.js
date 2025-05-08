@@ -86,7 +86,7 @@ function handleAnswer(selectedFact, selectedElement, facts) {
       if (currentLevelIndex < totalLevels) {
         showQuestion();
       } else {
-        feedback.textContent = "🏆 You beat the Expert level! You're a fact master!";
+        feedback.textContent = "🏆 You made it to the end! You're a fact master!";
         feedback.style.color = "#10b981";
       }
     }, 1500);
